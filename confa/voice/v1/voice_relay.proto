@@ -2,9 +2,9 @@ syntax = "proto3";
 
 package confa.voice.v1;
 
-option go_package = "/voice_relayv1";
+option go_package = "/voicev1";
 
-import "confa/voice_relay/v1/voice.proto";
+import "confa/voice/v1/voice.proto";
 
 service VoiceRelayService {
   rpc SpeakToChannel(stream SpeakToChannelRequest)

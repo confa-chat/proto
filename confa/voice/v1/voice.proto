@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package confa.voice.v1;
 
-option go_package = "/voice_relayv1";
+option go_package = "/voicev1";
 
 message SendMeta {}
 
