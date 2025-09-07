@@ -54,5 +54,7 @@ message WatchChannelRequestSingle {
 }
 
 message WatchChannelResponse {
-  oneof response { VoiceInfo voice_info = 1; }
+  string server_id = 1;
+  string channel_id = 2;
+  UsersState users_state = 3;
 }
