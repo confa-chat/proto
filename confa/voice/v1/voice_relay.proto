@@ -11,6 +11,7 @@ service VoiceRelayService {
       returns (SpeakToChannelResponse) {}
   rpc ListenToUser(ListenToUserRequest) returns (stream ListenToUserResponse) {}
   rpc JoinChannel(JoinChannelRequest) returns (stream JoinChannelResponse) {}
+  rpc WatchChannel(WatchChannelRequest) returns (stream WatchChannelResponse) {}
 }
 
 message JoinChannelRequest {
@@ -41,4 +42,17 @@ message ListenToUserResponse {
     VoiceInfo voice_info = 1;
     VoiceData voice_data = 2;
   }
+}
+
+message WatchChannelRequest {
+  oneof request { WatchChannelRequestSingle request_single = 1; }
+}
+
+message WatchChannelRequestSingle {
+  string server_id = 1;
+  string channel_id = 2;
+}
+
+message WatchChannelResponse {
+  oneof response { VoiceInfo voice_info = 1; }
 }
