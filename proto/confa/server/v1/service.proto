@@ -2,11 +2,11 @@ syntax = "proto3";
 
 package confa.server.v1;
 
-option go_package = "/serverv1";
-
+import "confa/channel/v1/channels.proto";
 // import "google/protobuf/timestamp.proto";
 import "confa/user/v1/user.proto";
-import "confa/channel/v1/channels.proto";
+
+option go_package = "/serverv1";
 
 service ServerService {
   rpc ListChannels(ListChannelsRequest) returns (ListChannelsResponse) {}
@@ -15,11 +15,19 @@ service ServerService {
   rpc EditChannel(EditChannelRequest) returns (EditChannelResponse) {}
 }
 
-message ListChannelsRequest { string server_id = 1; }
-message ListChannelsResponse { repeated confa.channel.v1.Channel channels = 1; }
+message ListChannelsRequest {
+  string server_id = 1;
+}
+message ListChannelsResponse {
+  repeated confa.channel.v1.Channel channels = 1;
+}
 
-message ListUsersRequest { string server_id = 1; }
-message ListUsersResponse { repeated confa.user.v1.User users = 1; }
+message ListUsersRequest {
+  string server_id = 1;
+}
+message ListUsersResponse {
+  repeated confa.user.v1.User users = 1;
+}
 
 message CreateChannelRequest {
   string server_id = 1;
@@ -31,7 +39,9 @@ message CreateChannelRequest {
   ChannelType type = 3;
 }
 
-message CreateChannelResponse { confa.channel.v1.Channel channel = 1; }
+message CreateChannelResponse {
+  confa.channel.v1.Channel channel = 1;
+}
 
 message EditChannelRequest {
   string server_id = 1;
@@ -44,4 +54,6 @@ message EditChannelRequest {
   ChannelType type = 4;
 }
 
-message EditChannelResponse { confa.channel.v1.Channel channel = 1; }
+message EditChannelResponse {
+  confa.channel.v1.Channel channel = 1;
+}
