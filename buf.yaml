@@ -1,9 +1,14 @@
 version: v2
 modules:
   - path: proto
+deps:
+  - buf.build/protocolbuffers/wellknowntypes
 lint:
   use:
     - STANDARD
+  ignore_only:
+    PACKAGE_DEFINED:
+      - proto/confa/extensions.proto
 breaking:
   use:
     - FILE

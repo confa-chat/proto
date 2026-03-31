@@ -21,4 +21,6 @@ message VoiceInfo {
 
 message ReceiveMeta {}
 
-message VoiceData { bytes data = 1; }
+message VoiceData {
+  bytes data = 1;
+}

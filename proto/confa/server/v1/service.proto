@@ -29,13 +29,15 @@ message ListUsersResponse {
   repeated confa.user.v1.User users = 1;
 }
 
+enum ChannelType {
+  CHANNEL_TYPE_UNSPECIFIED = 0;
+  CHANNEL_TYPE_TEXT = 1;
+  CHANNEL_TYPE_VOICE = 2;
+}
+
 message CreateChannelRequest {
   string server_id = 1;
   string name = 2;
-  enum ChannelType {
-    TEXT = 0;
-    VOICE = 1;
-  }
   ChannelType type = 3;
 }
 
@@ -47,10 +49,6 @@ message EditChannelRequest {
   string server_id = 1;
   string channel_id = 2;
   string name = 3;
-  enum ChannelType {
-    TEXT = 0;
-    VOICE = 1;
-  }
   ChannelType type = 4;
 }
 

@@ -2,13 +2,12 @@ syntax = "proto3";
 
 package confa.voice.v1;
 
-option go_package = "/voicev1";
-
 import "confa/voice/v1/voice.proto";
 
+option go_package = "/voicev1";
+
 service VoiceRelayService {
-  rpc SpeakToChannel(stream SpeakToChannelRequest)
-      returns (SpeakToChannelResponse) {}
+  rpc SpeakToChannel(stream SpeakToChannelRequest) returns (SpeakToChannelResponse) {}
   rpc ListenToUser(ListenToUserRequest) returns (stream ListenToUserResponse) {}
   rpc JoinChannel(JoinChannelRequest) returns (stream JoinChannelResponse) {}
   rpc WatchChannel(WatchChannelRequest) returns (stream WatchChannelResponse) {}
@@ -21,10 +20,14 @@ message JoinChannelRequest {
 }
 
 message JoinChannelResponse {
-  oneof state { UsersState users_state = 1; }
+  oneof state {
+    UsersState users_state = 1;
+  }
 }
 
-message UsersState { repeated string user_ids = 1; }
+message UsersState {
+  repeated string user_ids = 1;
+}
 
 message SpeakToChannelRequest {
   oneof request {
@@ -35,7 +38,9 @@ message SpeakToChannelRequest {
 
 message SpeakToChannelResponse {}
 
-message ListenToUserRequest { VoiceInfo voice_info = 1; }
+message ListenToUserRequest {
+  VoiceInfo voice_info = 1;
+}
 
 message ListenToUserResponse {
   oneof response {
@@ -45,7 +50,9 @@ message ListenToUserResponse {
 }
 
 message WatchChannelRequest {
-  oneof request { WatchChannelRequestSingle request_single = 1; }
+  oneof request {
+    WatchChannelRequestSingle request_single = 1;
+  }
 }
 
 message WatchChannelRequestSingle {

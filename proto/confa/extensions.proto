@@ -2,4 +2,6 @@ syntax = "proto3";
 
 import "google/protobuf/descriptor.proto";
 
-extend google.protobuf.MethodOptions { bool skip_auth = 33301; }
+extend google.protobuf.MethodOptions {
+  bool skip_auth = 33301;
+}
